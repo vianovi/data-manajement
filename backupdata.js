@@ -7,7 +7,7 @@ function backup() {
     }
 }
 
-function loadData_backup() {
+function memuat_backup() {
     try {
         const storedData = localStorage.getItem('backup_dataArray');
         if (storedData) {
@@ -20,4 +20,9 @@ function loadData_backup() {
     } catch (error) {
         console.error('Gagal memuat data:', error);
     }
+}
+
+function openIndexHtml() {
+    window.location.href = "index.html";
+    memuat_backup();
 }
