@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact form</title>
+    <link rel="stylesheet" href="style-contactuse.css" />
+</head>
+<body>
+    <div class="contact-container">
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+            <div class="contact-left-title">
+                <h2>Dapatkan di sini</h2>
+                <hr />
+            </div>
+            <input type="hidden" name="access_key" value="a39c8043-3f07-4335-a3a0-44c69cc8bc42">
+            <input type="text" name="name" placeholder="Nama anda" class="contacts-inputs" required>
+            <input type="email" name="email" placeholder="Eamil anda" class="contacts-inputs" required>
+            <textarea name="message" placeholder="Masukan alasan anda" class="contacts-inputs" required></textarea>
+            <div class="h-captcha" data-captcha="true"></div>
+            <button type="submit">Kirim pesan <img src="contacts-img/arrow_icon.png" alt="tombol submit"></button>
+        </form>
+            
+            <!-- Pesan sukses yang akan muncul setelah form dikirim -->
+            <p id="success-message" style="display: none">Setelah mengirim, <a href="index.html" style="color: #fa6d86;">klik di sini</a> untuk kembali ke halaman awal.</p>
+            
+            <script>
+                // Menambahkan event listener untuk form submit
+                document.querySelector('form').addEventListener('submit', function(event) {
+                    event.preventDefault(); // Mencegah pengiriman form default
+                    // Simulasi pengiriman form
+                    setTimeout(function() {
+                        // Menampilkan pesan sukses setelah form dikirim
+                        document.getElementById('success-message').style.display = 'block';
+                    }, 1000); // Ganti dengan waktu yang sesuai atau hapus jika tidak diperlukan
+                });
+            </script>
+        
+    </div>
+</body>
+</html>
