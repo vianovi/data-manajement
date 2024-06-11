@@ -25,6 +25,7 @@
     <ul id="dataList"></ul>
     <!-- Menambahkan file JavaScript eksternal -->
     <script src="database.js"></script>
+    <script src="backupdata.js"></script>
 
     <script>
         // Mendefinisikan dataArray sebagai array kosong
@@ -145,17 +146,52 @@
     </script>
 
     <p>Backup data anda akan muncul di bawah sini:</p>
+    <script>
+        function displayData_backup() {
+            const dataListElement = document.getElementById('dataList');
+            dataListElement.innerHTML = ''; // Mengosongkan daftar sebelum menambahkan data baru
+
+            backup_dataArray.forEach((data) => {
+                const table = document.createElement('table');
+                table.className = 'no-select'; // Menambahkan class no-select
+                const tbody = document.createElement('tbody');
+
+                const rowNama = document.createElement('tr');
+                const cellNamaLabel = document.createElement('td');
+                cellNamaLabel.textContent = 'Nama      :';
+                const cellNamaValue = document.createElement('td');
+                cellNamaValue.textContent = data.nama;
+                rowNama.appendChild(cellNamaLabel);
+                rowNama.appendChild(cellNamaValue);
+
+                const rowKelas = document.createElement('tr');
+                const cellKelasLabel = document.createElement('td');
+                cellKelasLabel.textContent = 'Kelas    :';
+                const cellKelasValue = document.createElement('td');
+                cellKelasValue.textContent = data.kelas;
+                rowKelas.appendChild(cellKelasLabel);
+                rowKelas.appendChild(cellKelasValue);
+
+                const rowJurusan = document.createElement('tr');
+                const cellJurusanLabel = document.createElement('td');
+                cellJurusanLabel.textContent = 'Jurusan:';
+                const cellJurusanValue = document.createElement('td');
+                cellJurusanValue.textContent = data.jurusan;
+                rowJurusan.appendChild(cellJurusanLabel);
+                rowJurusan.appendChild(cellJurusanValue);
+
+                tbody.appendChild(rowNama);
+                tbody.appendChild(rowKelas);
+                tbody.appendChild(rowJurusan);
+                table.appendChild(tbody);
+
+                const li = document.createElement('li');
+                li.appendChild(table);
+                dataListElement.appendChild(li);
+            });
+        }
+    </script>
     <a href="contacuse.html">Dapatkan di sini</a>
-    <script src="backupdata.js"></script>
-        <script>
-            function backup() {
-                try {
-                    localStorage.setItem('backup_dataArray', JSON.stringify(backup_dataArray));
-                    console.log('Data berhasil dibackup:', backup_dataArray);
-                }   catch (error) {
-                    console.error('gagal membuat backup:', error);
-                }
-            }
-        </script>
+
 </body>
 </html>

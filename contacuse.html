@@ -21,9 +21,11 @@
             <div class="h-captcha" data-captcha="true"></div>
             <button type="submit">Kirim pesan <img src="contacts-img/arrow_icon.png" alt="tombol submit"></button>
         </form>
+
+        <script src="backupdata.js"></script>
             
             <!-- Pesan sukses yang akan muncul setelah form dikirim -->
-            <p id="success-message" style="display: none">Setelah mengirim, <a href="index.html" style="color: #fa6d86;">klik di sini</a> untuk kembali ke halaman awal.</p>
+            <p id="success-message" style="display: none">Setelah mengirim, <a href="backupdata.js" onclick="loadData_backup(); return false;" style="color: #fa6d86;">klik di sini</a> untuk kembali ke halaman awal.</p>
             
             <script>
                 // Menambahkan event listener untuk form submit
