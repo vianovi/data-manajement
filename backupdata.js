@@ -11,9 +11,9 @@ function memuat_backup() {
     try {
         const storedData = localStorage.getItem('backup_dataArray');
         if (storedData) {
-            dataArray = JSON.parse(storedData);
-            console.log('Data berhasil dimuat:', dataArray);
+            backup_dataArray = JSON.parse(storedData);
             displayData_backup();
+            console.log('Data berhasil dimuat:', backup_dataArray);
         } else {
             console.log('Tidak ada data yang disimpan sebelumnya.');
         }
